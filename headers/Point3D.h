@@ -15,9 +15,7 @@ public:
     void setY(double y);
     void setZ(double z);
 
-    void operator==(Point3D p1);
-
-    bool isUnique(std::vector<Triangulation> triangles);
+    bool operator==(const Point3D& p1);
 
 private:
     double mX;
