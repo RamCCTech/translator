@@ -19,3 +19,8 @@ void Writer::writeVertexToSTL(std::ofstream& dataFile, Point3D vertex)
 void Writer ::writeObjToStl(std::string filePath, Triangulation &triangulatio)
 {
 }
+
+void Writer::writeNormal(std::ofstream& dataFile, Point3D point)
+{
+    dataFile << "  facet Normal " << point.x() << " " << point.y() << " " << point.z() << std::endl;
+}
