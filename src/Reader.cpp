@@ -81,6 +81,11 @@ void Reader::readOBJ(std::string filePath, Triangulation &triangulation)
 	std::string line;
 	while (std::getline(file, line))
 	{
+		if (line.find("o") != std::string::npos)
+		{
+			
+		}
+
 		if (line.find("v ") != std::string::npos)
 		{
 			readOBJVertex(line, points);
@@ -96,6 +101,16 @@ void Reader::readOBJ(std::string filePath, Triangulation &triangulation)
 			readOBJFacet(line, points, normals, triangulation);
 		}
 	}
+}
+
+void Reader::readOBJName(std::string line,  Triangulation &triangulation)
+{
+	std::istringstream nameLine(line);
+	std::string token;
+	std::string name;
+
+	nameLine >> token >> name;
+	triangulation.setName(name);
 }
 
 void Reader::readOBJVertex(std::string line, PointList &points)
