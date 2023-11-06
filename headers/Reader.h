@@ -10,9 +10,9 @@ public:
     ~Reader();
 
     void readOBJ(std::string filePath, Triangulation &triangulation);
-    void readVertex(std::string line, PointList &points);
-    void readNormal(std::string line, PointList &normals);
-    void readFacet(std::string line, PointList &points, PointList &normals, Triangulation &triangulation);
+    void readOBJNormal(std::string line, PointList &normals);
+    void readOBJFacet(std::string line, PointList &points, PointList &normals, Triangulation &triangulation);
+    void readOBJVertex(std::string line, PointList &points);
 
 private:
 };
