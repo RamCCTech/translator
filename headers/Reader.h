@@ -1,7 +1,7 @@
 #pragma once
 #include <string>
 #include "Triangulation.h"
-#include "headers/TypeDef.h"
+#include "TypeDef.h"
 
 class Reader
 {
