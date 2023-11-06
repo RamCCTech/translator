@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 #include <iostream>
 #include <sstream>
 #include <fstream>
@@ -62,19 +61,8 @@ void Reader::readSTL(std::string filePath, Triangulation &triangulation)
         }
     }
     dataFile.close();
-=======
-#include "../headers/Reader.h"
-#include "../headers/Triangle.h"
-#include <sstream>
-#include <fstream>
-#include <iostream>
 
-Reader::Reader()
-{
-}
 
-Reader::~Reader()
-{
 }
 
 void Reader::readOBJ(std::string filePath, Triangulation &triangulation)
@@ -149,5 +137,4 @@ void Reader::readFacet(std::string line, PointList &points, PointList &normals, 
 	int indexNormal = stoi(stringNormal);
 
 	triangulation.addTriangle(points[indexP1], points[indexP2], points[indexP3], normals[indexNormal]);
->>>>>>> main
 }
