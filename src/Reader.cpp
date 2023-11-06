@@ -45,6 +45,19 @@ void Reader::readOBJ(std::string filePath, Triangulation &triangulation)
 	}
 }
 
+void Reader::readNormal(std::string line, PointList &normals)
+{
+    std::istringstream normalLine(line);
+    std::string token;
+
+    double x;
+    double y;
+    double z;
+
+    normalLine >> token >> x >> y >> z;
+    normals.push_back(Point3D(x, y, z));
+}
+
 void Reader::readFacet(std::string line, PointList &points, PointList &normals, Triangulation &triangulation)
 {
 	std::istringstream facetLine(line);
