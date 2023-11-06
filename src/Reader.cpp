@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 #include <iostream>
 #include <sstream>
 #include <fstream>
@@ -152,5 +151,3 @@ void Reader::readOBJFacet(std::string line, PointList &points, PointList &normal
 
 	triangulation.addTriangle(points[indexP1], points[indexP2], points[indexP3], normals[indexNormal]);
 }
-=======
->>>>>>> 3349a0fce3bef90d6064a7b313ebe8943ec9b923
