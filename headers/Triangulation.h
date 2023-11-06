@@ -11,7 +11,11 @@ class Triangulation
         PointList points();
         PointList normals();
        
- 
+        void addTriangle(Point3D p1, Point3D p2, Point3D p3, Point3D normal);
+    
+    private:
+        int Triangulation::getIndex(Point3D point);
+
     private:
         TriangleList mTriangles;
         PointList mPoints;
