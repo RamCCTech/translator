@@ -9,5 +9,4 @@ public:
     ~Reader();
 
     void readSTL(std::string filePath, Triangulation &triangulation);
-
 };
