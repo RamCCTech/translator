@@ -5,8 +5,8 @@ int main()
 {
     Triangulation triangulation;
 
-    Reader read();
-    read.("../resources/cubeModel.stl", triangulation);
+    Reader read;
+    read.readSTL("../resources/cubeModel.stl", triangulation);
 
     return 0;
 }
