@@ -8,7 +8,7 @@ class Reader
         Reader();
         ~Reader();
 
-        void read(std::string filePath, Triangulation& triangulation);
+        void readSTL(std::string filePath, Triangulation& triangulation);
     
     private:
         
