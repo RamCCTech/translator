@@ -30,8 +30,13 @@ int main()
         }
         case 2:
         {
- 
+           Reader read;
+           read.readSTL("resources/cubeModel.stl", triangulation);
+    
+           Writer writer(triangulation);
+           writer.writeStlToObj("output\\outputObj.obj");
         }
     }
-    return 0;
+return 0;
+
 }
