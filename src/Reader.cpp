@@ -30,22 +30,35 @@ void Reader::readOBJ(std::string filePath, Triangulation &triangulation)
 	{
 		if (line.find("v ") != std::string::npos)
 		{
-			readVertex(line, points);
+			readOBJVertex(line, points);
 		}
 
 		else if (line.find("vn") != std::string::npos)
 		{
-			readNormal(line, normals);
+			readOBJNormal(line, normals);
 		}
 
 		else if (line.find("f") != std::string::npos)
 		{
-			readFacet(line, points, normals, triangulation);
+			readOBJFacet(line, points, normals, triangulation);
 		}
 	}
 }
 
-void Reader::readNormal(std::string line, PointList &normals)
+void Reader::readOBJVertex(std::string line, PointList &points)
+{
+	std::istringstream vertexLine(line);
+	std::string token;
+
+	double x;
+	double y;
+	double z;
+
+	vertexLine >> token >> x >> y >> z;
+	points.push_back(Point3D(x, y, z));
+}
+
+void Reader::readOBJNormal(std::string line, PointList &normals)
 {
     std::istringstream normalLine(line);
     std::string token;
@@ -58,7 +71,7 @@ void Reader::readNormal(std::string line, PointList &normals)
     normals.push_back(Point3D(x, y, z));
 }
 
-void Reader::readFacet(std::string line, PointList &points, PointList &normals, Triangulation &triangulation)
+void Reader::readOBJFacet(std::string line, PointList &points, PointList &normals, Triangulation &triangulation)
 {
 	std::istringstream facetLine(line);
 	std::string token;
