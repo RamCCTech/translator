@@ -1,7 +1,9 @@
 #pragma once
+#include <vector>
 #include <string>
+#include "Triangle.h"
 #include "Triangulation.h"
-#include "headers/TypeDef.h"
+#include "TypeDef.h"
 
 class Reader
 {
@@ -10,6 +12,7 @@ public:
     ~Reader();
 
     void readOBJ(std::string filePath, Triangulation &triangulation);
+    void readSTL(std::string filePath, Triangulation &triangulation);
 
 private:
     void readOBJNormal(std::string line, PointList &normals);
