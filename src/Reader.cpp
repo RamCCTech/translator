@@ -45,6 +45,19 @@ void Reader::readOBJ(std::string filePath, Triangulation &triangulation)
 	}
 }
 
+void Reader::readVertex(std::string line, PointList &points)
+{
+	std::istringstream vertexLine(line);
+	std::string token;
+
+	double x;
+	double y;
+	double z;
+
+	vertexLine >> token >> x >> y >> z;
+	points.push_back(Point3D(x, y, z));
+}
+
 void Reader::readNormal(std::string line, PointList &normals)
 {
     std::istringstream normalLine(line);
