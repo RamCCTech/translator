@@ -1,7 +1,7 @@
 #include <iostream>
-#include"../headers/Triangulation.h"
-#include"../headers/Reader.h"
-#include"../headers/Writer.h"
+#include"./headers/Triangulation.h"
+#include"./headers/Reader.h"
+#include"./headers/Writer.h"
 using namespace std;
  
 int main()
@@ -22,10 +22,10 @@ int main()
         case 1:
         {
             Reader reader;
-            reader.readOBJ("translator\\resources\\cube.obj",triangulation);
+            reader.readOBJ("resources\\cube.obj",triangulation);
  
             Writer writer;
-            writer.writeObjToStl("output/outputSTL.stl",triangulation);
+            writer.writeObjToStl("output\\outputSTL.stl",triangulation);
                    
         }
         case 2:

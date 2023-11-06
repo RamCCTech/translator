@@ -81,9 +81,9 @@ void Reader::readOBJ(std::string filePath, Triangulation &triangulation)
 	std::string line;
 	while (std::getline(file, line))
 	{
-		if (line.find("o") != std::string::npos)
+		if (line.find("o ") != std::string::npos)
 		{
-			
+			readOBJName(line,triangulation);
 		}
 
 		if (line.find("v ") != std::string::npos)
@@ -96,7 +96,7 @@ void Reader::readOBJ(std::string filePath, Triangulation &triangulation)
 			readOBJNormal(line, normals);
 		}
 
-		else if (line.find("f") != std::string::npos)
+		else if (line.find("f ") != std::string::npos)
 		{
 			readOBJFacet(line, points, normals, triangulation);
 		}
@@ -123,6 +123,7 @@ void Reader::readOBJVertex(std::string line, PointList &points)
 	double z;
 
 	vertexLine >> token >> x >> y >> z;
+		std::cout<<x<<" "<<y<<" "<<z<<std::endl;
 	points.push_back(Point3D(x, y, z));
 }
 
@@ -149,7 +150,6 @@ void Reader::readOBJFacet(std::string line, PointList &points, PointList &normal
 	std::string stringP3;
 
 	facetLine >> token >> stringP1 >> stringP2 >> stringP3;
-
 	int indexP1 = stoi(stringP1.substr(0, stringP1.find("/")));
 	int indexP2 = stoi(stringP2.substr(0, stringP2.find("/")));
 	int indexP3 = stoi(stringP3.substr(0, stringP3.find("/")));
@@ -163,6 +163,9 @@ void Reader::readOBJFacet(std::string line, PointList &points, PointList &normal
 		stringNormal = stringP1.at(i) + stringNormal;
 	}
 	int indexNormal = stoi(stringNormal);
+	std::cout<<points[indexP1-1].x()<<" "<<points[indexP2-1].x()<<" "<<points[indexP3-1].x()<<" "<<normals[indexNormal-1].x()<<std::endl;
+	std::cout<<points[indexP1-1].y()<<" "<<points[indexP2-1].y()<<" "<<points[indexP3-1].y()<<" "<<normals[indexNormal-1].y()<<std::endl;
+	std::cout<<points[indexP1-1].z()<<" "<<points[indexP2-1].z()<<" "<<points[indexP3-1].z()<<" "<<normals[indexNormal-1].z()<<std::endl;
 
-	triangulation.addTriangle(points[indexP1], points[indexP2], points[indexP3], normals[indexNormal]);
+	triangulation.addTriangle(points[indexP1-1], points[indexP2-1], points[indexP3-1], normals[indexNormal-1]);
 }
