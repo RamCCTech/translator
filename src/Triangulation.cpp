@@ -33,7 +33,7 @@ void Triangulation::addTriangle(Point3D p1, Point3D p2, Point3D p3, Point3D norm
     int idxn = getNIndex(normal);
     Triangle t1 = Triangle(idx1, idx2, idx3);
     t1.setNormal(idxn);
-    mTriangles.push_back(Triangle(idx1, idx2, idx3));
+    mTriangles.push_back(t1);
     
 }
 
