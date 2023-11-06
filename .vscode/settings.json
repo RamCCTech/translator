@@ -1,8 +1,5 @@
 {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> e0b031188da54b6613a1aaf20f1b626e76ada17e
+
     "files.associations": {
         "array": "cpp",
         "atomic": "cpp",
@@ -44,10 +41,6 @@
         "stdexcept": "cpp",
         "streambuf": "cpp",
         "typeinfo": "cpp",
-<<<<<<< HEAD
-        "iostream": "cpp"
-    }
-=======
         "iostream": "cpp",
         "bit": "cpp",
         "compare": "cpp",
@@ -56,7 +49,6 @@
         "string_view": "cpp",
         "numbers": "cpp"
     }
-=======
 	"files.associations": {
 		"array": "cpp",
 		"atomic": "cpp",
@@ -105,6 +97,4 @@
 		"streambuf": "cpp",
 		"typeinfo": "cpp"
 	}
->>>>>>> main
->>>>>>> e0b031188da54b6613a1aaf20f1b626e76ada17e
 }
