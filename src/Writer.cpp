@@ -1,7 +1,7 @@
 #include <iostream>
 #include <fstream>
 
-#include "headers/Writer.h"
+#include "../headers/Writer.h"
 
 Writer::Writer(/* args */)
 {
@@ -14,10 +14,6 @@ Writer::~Writer()
 void Writer::writeVertexToSTL(std::ofstream& dataFile, Point3D vertex)
 {
     dataFile <<"      vertex"<< vertex.x() << " " <<vertex.y()<< " "<< vertex.z() << std::endl;
-}
-
-void Writer ::writeObjToStl(std::string filePath, Triangulation &triangulatio)
-{
 }
 
 void Writer::writeNormal(std::ofstream& dataFile, Point3D point)
@@ -35,11 +31,12 @@ void Writer :: writeObjToStl(std::string filePath ,Triangulation& triangulation)
 
     for (Triangle t : triangulation.triangles())
     {
-        writeNormal(dataFile, triangulation.normals()[t.getNormal() - 1]);
+        std::cout<<t.getNormal()<<" "<<t.getIdxP1()<<" "<<t.getIdxP2()<<" "<<t.getIdxP3()<<std::endl;
+        writeNormal(dataFile, triangulation.normals()[t.getNormal()]);
         dataFile << "outer loop " << std::endl;
-        writeVertexToSTL(dataFile, triangulation.points()[t.getIdxP1() - 1]);
-        writeVertexToSTL(dataFile, triangulation.points()[t.getIdxP2() - 1]);
-        writeVertexToSTL(dataFile, triangulation.points()[t.getIdxP3() - 1]);
+        writeVertexToSTL(dataFile, triangulation.points()[t.getIdxP1()]);
+        writeVertexToSTL(dataFile, triangulation.points()[t.getIdxP2()]);
+        writeVertexToSTL(dataFile, triangulation.points()[t.getIdxP3()]);
         dataFile << "endloop" << std::endl;
         dataFile << "endfacet" << std::endl;
     }
