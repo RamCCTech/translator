@@ -12,5 +12,6 @@ class Writer
         
     private:
         void writeVertexToSTL(std::ofstream& dataFile, Point3D vertex );
+        void writeNormal(std::ofstream& dataFile, Point3D point);
  
 };
