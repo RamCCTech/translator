@@ -23,18 +23,18 @@ int Triangle::getNormal()
 {
     return mNormal;
 }
-
-int Triangle :: getIdxP1()
+ 
+int Triangle::getIdxP1()
 {
     return mIdxP1;
 }
-
-int Triangle :: getIdxP2()
+ 
+int Triangle::getIdxP2()
 {
     return mIdxP2;
 }
-
-int Triangle :: getIdxP3()
+ 
+int Triangle::getIdxP3()
 {
     return mIdxP3;
 }
