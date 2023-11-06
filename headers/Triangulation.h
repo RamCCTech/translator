@@ -1,4 +1,5 @@
 #pragma once
+#include <string>
 #include"TypeDef.h"
  
 class Triangulation
@@ -12,6 +13,9 @@ class Triangulation
         PointList normals();
        
         void addTriangle(Point3D p1, Point3D p2, Point3D p3, Point3D normal);
+
+        std::string getName();
+        void setName(std::string inName);
     
     private:
         int getVIndex(Point3D point);
@@ -21,4 +25,5 @@ class Triangulation
         TriangleList mTriangles;
         PointList mPoints;
         PointList mNormals;
+        std::string mObjName;
 };

@@ -66,3 +66,13 @@ int Triangulation::getNIndex(Point3D point)
 
     return mNormals.size()-1;
 }
+
+std::string Triangulation::getName()
+{
+    return mObjName;
+}
+
+void Triangulation::setName(std::string inName)
+{
+    mObjName = inName;
+}

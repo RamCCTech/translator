@@ -1,6 +1,5 @@
 #include <iostream>
 #include <fstream>
-#include <filesystem>
 
 #include "headers/Writer.h"
 
@@ -31,9 +30,8 @@ void Writer :: writeObjToStl(std::string filePath ,Triangulation& triangulation)
     std::ofstream dataFile;
     dataFile.open(filePath);
 
-    std::filesystem::path p(filePath);
 
-    dataFile << "Solid " << p.stem() << std::endl;
+    dataFile << "Solid " << triangulation.getName() << std::endl;
 
     for (Triangle t : triangulation.triangles())
     {
@@ -46,7 +44,7 @@ void Writer :: writeObjToStl(std::string filePath ,Triangulation& triangulation)
         dataFile << "endfacet" << std::endl;
     }
 
-    dataFile << "Endsolid " << p.stem() << std::endl;
+    dataFile << "Endsolid " << triangulation.getName() << std::endl;
 
     dataFile.close();
 }
