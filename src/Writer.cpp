@@ -11,7 +11,7 @@ Writer::~Writer()
 {
 }
 
-void Writer::writeVertexToSTL(std::ofstream &dataFile, Point3D vertex)
+void Writer::writeVertexToSTL(std::ofstream& dataFile, Point3D vertex)
 {
     dataFile <<"      vertex"<< vertex.x() << " " <<vertex.y()<< " "<< vertex.z() << std::endl;
 }
