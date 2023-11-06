@@ -13,8 +13,7 @@ class Triangulation
 
         void addPoint(Point3D inPoint);
         void addNormal(Point3D inNormal);
-        void addTriangle(Triangle inPoint);
-        
+        void addTriangle(Triangle inPoint);  
 
     private:
         TriangleList mTriangles;

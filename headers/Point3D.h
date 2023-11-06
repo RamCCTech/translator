@@ -1,4 +1,5 @@
 #pragma once
+#include"Triangulation.h"
 
 class Point3D
 {
@@ -13,6 +14,10 @@ public:
     void setX(double x);
     void setY(double y);
     void setZ(double z);
+
+    void operator==(Point3D p1);
+
+    bool isUnique(std::vector<Triangulation> triangles);
 
 private:
     double mX;
