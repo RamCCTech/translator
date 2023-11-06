@@ -9,6 +9,12 @@ class Triangle
     
         void setNormal(int inNormal);
 
+        int getIdxP1();
+        int getIdxP2();
+        int getIdxP3();
+
+        int getNormal();
+
     private:
         int mIdxP1;
         int mIdxP2;
