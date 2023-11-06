@@ -21,12 +21,11 @@ Writer::~Writer()
 void Writer::writeVertexToSTL(std::ofstream& dataFile, Point3D vertex)
 {
     dataFile <<"      vertex "<< vertex.x() << " " <<vertex.y()<< " "<< vertex.z() << std::endl;
-    dataFile <<"      vertex "<< vertex.x() << " " <<vertex.y()<< " "<< vertex.z() << std::endl;
 }
 
 void Writer::writeNormal(std::ofstream& dataFile, Point3D point)
 {
-    dataFile << "  facet Normal " << point.x() << " " << point.y() << " " << point.z() << std::endl;
+    dataFile << "  facet normal " << point.x() << " " << point.y() << " " << point.z() << std::endl;
 }
 
 void Writer :: writeObjToStl(std::string filePath ,Triangulation& triangulation)
@@ -35,7 +34,7 @@ void Writer :: writeObjToStl(std::string filePath ,Triangulation& triangulation)
     dataFile.open(filePath);
     std::cout<<filePath<<std::endl;
 
-    dataFile << "Solid " << triangulation.getName() << std::endl;
+    dataFile << "solid " << triangulation.getName() << std::endl;
 
     for (Triangle t : triangulation.triangles())
     {
@@ -49,7 +48,7 @@ void Writer :: writeObjToStl(std::string filePath ,Triangulation& triangulation)
         dataFile << "  endfacet" << std::endl;
     }
 
-    dataFile << "Endsolid " << triangulation.getName() << std::endl;
+    dataFile << "endsolid " << triangulation.getName() << std::endl;
 
     dataFile.close();
 }
