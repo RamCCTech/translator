@@ -11,9 +11,7 @@ class Triangulation
         PointList points();
         PointList normals();
 
-        void addPoint(Point3D inPoint);
-        void addNormal(Point3D inNormal);
-        void addTriangle(Triangle inPoint);
+        void addTriangle(Point3D p1, Point3D p2, Point3D p3, Point3D normal);
         
 
     private:
