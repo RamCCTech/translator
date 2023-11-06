@@ -41,6 +41,13 @@ int Triangulation::getIndex(Point3D point)
 {
     for(int i=0 ; i<mPoints.size(); i++)
     {
-
+        if(mPoints[i] == point)
+        {
+            return i;
+        }
     }
+
+    mPoints.push_back(point);
+
+    return mPoints.size()-1;
 }
