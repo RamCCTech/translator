@@ -15,7 +15,6 @@ Triangle::~Triangle()
 }
     
 void Triangle::setNormal(int inNormal)
-:mNormal(inNormal)
 {
-    
+    mNormal = inNormal;
 }

@@ -4,4 +4,4 @@
 #include"Point3D.h"
 
 typedef std::vector<Point3D> PointList;
-typedef std::vector<Triangle> TriList;
+typedef std::vector<Triangle> TriangleList;
