@@ -1,6 +1,7 @@
 #include <iostream>
 #include"../headers/Triangulation.h"
 #include"../headers/Reader.h"
+#include"../headers/Writer.h"
 using namespace std;
  
 int main()
@@ -23,9 +24,9 @@ int main()
             Reader reader;
             reader.readOBJ("translator\\resources\\cube.obj",triangulation);
  
-            Writer
-           
-           
+            Writer writer;
+            writer.writeObjToStl("output/outputSTL.stl",triangulation);
+                   
         }
         case 2:
         {
