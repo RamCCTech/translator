@@ -1,5 +1,5 @@
-#include"../headers/Triangulation.h"
-#include"../headers/Reader.h"
+#include "headers/Triangulation.h"
+#include "headers/Reader.h"
 
 int main()
 {
