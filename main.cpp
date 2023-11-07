@@ -20,7 +20,6 @@ int main()
         {
             Reader reader;
             reader.readOBJ("resources\\cube.obj", triangulation);
-
             Writer writer;
             writer.writeObjToStl("output\\outputSTL.stl", triangulation);
             break;
@@ -29,7 +28,6 @@ int main()
         {
             Reader read;
             read.readSTL("resources/cubeModel.stl", triangulation);
-
             Writer writer(triangulation);
             writer.writeStlToObj("output\\outputObj.obj");
             break;
