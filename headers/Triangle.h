@@ -8,7 +8,6 @@ class Triangle
         ~Triangle();
     
         void setNormal(int inNormal);
-
         int getIdxP1();
         int getIdxP2();
         int getIdxP3();

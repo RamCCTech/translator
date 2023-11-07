@@ -18,4 +18,5 @@ private:
     void readOBJNormal(std::string line, PointList &normals);
     void readOBJFacet(std::string line, PointList &points, PointList &normals, Triangulation &triangulation);
     void readOBJVertex(std::string line, PointList &points);
+    void readOBJName(std::string line,  Triangulation &triangulation);
 };
