@@ -1,5 +1,7 @@
 #pragma once
+
 #include <string> 
+
 #include "Triangulation.h"
  
 class Writer
@@ -14,8 +16,8 @@ class Writer
     private:
         Triangulation mTriangulation;
         void writeVertexToSTL(std::ofstream& dataFile, Point3D vertex );
-        void writeNormal(std::ofstream& dataFile, Point3D point);
-        void writeNormals(std::ofstream& dataFile);
-        void writeVertices(std::ofstream& dataFile);
-        void writeFacets(std::ofstream& dataFile);
+        void writeNormalToSTL(std::ofstream& dataFile, Point3D point);
+        void writeNormalToOBJ(std::ofstream& dataFile);
+        void writeVerticesToOBJ(std::ofstream& dataFile);
+        void writeFacetToOBJ(std::ofstream& dataFile);
 };

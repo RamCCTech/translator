@@ -11,7 +11,6 @@ class Triangle
         int getIdxP1();
         int getIdxP2();
         int getIdxP3();
-
         int getNormal();
 
     private:

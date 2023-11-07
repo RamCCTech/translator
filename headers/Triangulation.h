@@ -1,5 +1,7 @@
 #pragma once
+
 #include <string>
+
 #include"TypeDef.h"
  
 class Triangulation
