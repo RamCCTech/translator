@@ -1,4 +1,3 @@
-.vscode
-outputObj.obj
-main.exe
 .gitignore
+.vscode/*.json
+output/*

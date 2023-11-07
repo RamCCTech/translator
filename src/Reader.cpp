@@ -1,7 +1,7 @@
 #include <iostream>
 #include <sstream>
 #include <fstream>
-#include "../headers/Point3D.h"
+
 #include "../headers/Reader.h"
 #include "../headers/Triangulation.h"
  
@@ -13,7 +13,7 @@ Reader::~Reader()
 {
 }
  
-void Reader::readSTL(std::string filePath, Triangulation &triangulation)
+void Reader::readSTL(std::string filePath, Triangulation& triangulation)
 {
     std::ifstream dataFile;
     dataFile.open(filePath);
@@ -32,7 +32,9 @@ void Reader::readSTL(std::string filePath, Triangulation &triangulation)
             std::string token;
             std::string toke;
             std::istringstream iss4(line);
-            double x, y, z;
+            double x;
+			double y;
+			double z;
             iss4 >> token >> toke >> x >> y >> z;
             normal = Point3D(x, y, z);
         }
@@ -41,7 +43,9 @@ void Reader::readSTL(std::string filePath, Triangulation &triangulation)
         {
             std::istringstream iss(line);
             std::string token;
-            double x, y, z;
+            double x;
+			double y;
+			double z;
  
             iss >> token >> x >> y >> z;
  
@@ -65,7 +69,7 @@ void Reader::readSTL(std::string filePath, Triangulation &triangulation)
 
 }
 
-void Reader::readOBJ(std::string filePath, Triangulation &triangulation)
+void Reader::readOBJ(std::string filePath, Triangulation& triangulation)
 {
 	std::ifstream file;
 	file.open(filePath);
@@ -103,7 +107,7 @@ void Reader::readOBJ(std::string filePath, Triangulation &triangulation)
 	}
 }
 
-void Reader::readOBJName(std::string line,  Triangulation &triangulation)
+void Reader::readOBJName(std::string line,  Triangulation& triangulation)
 {
 	std::istringstream nameLine(line);
 	std::string token;
@@ -113,7 +117,7 @@ void Reader::readOBJName(std::string line,  Triangulation &triangulation)
 	triangulation.setName(name);
 }
 
-void Reader::readOBJVertex(std::string line, PointList &points)
+void Reader::readOBJVertex(std::string line, PointList& points)
 {
 	std::istringstream vertexLine(line);
 	std::string token;
@@ -123,11 +127,10 @@ void Reader::readOBJVertex(std::string line, PointList &points)
 	double z;
 
 	vertexLine >> token >> x >> y >> z;
-		std::cout<<x<<" "<<y<<" "<<z<<std::endl;
 	points.push_back(Point3D(x, y, z));
 }
 
-void Reader::readOBJNormal(std::string line, PointList &normals)
+void Reader::readOBJNormal(std::string line, PointList& normals)
 {
     std::istringstream normalLine(line);
     std::string token;
@@ -140,7 +143,7 @@ void Reader::readOBJNormal(std::string line, PointList &normals)
     normals.push_back(Point3D(x, y, z));
 }
 
-void Reader::readOBJFacet(std::string line, PointList &points, PointList &normals, Triangulation &triangulation)
+void Reader::readOBJFacet(std::string line, PointList& points, PointList& normals, Triangulation& triangulation)
 {
 	std::istringstream facetLine(line);
 	std::string token;
@@ -163,9 +166,6 @@ void Reader::readOBJFacet(std::string line, PointList &points, PointList &normal
 		stringNormal = stringP1.at(i) + stringNormal;
 	}
 	int indexNormal = stoi(stringNormal);
-	std::cout<<points[indexP1-1].x()<<" "<<points[indexP2-1].x()<<" "<<points[indexP3-1].x()<<" "<<normals[indexNormal-1].x()<<std::endl;
-	std::cout<<points[indexP1-1].y()<<" "<<points[indexP2-1].y()<<" "<<points[indexP3-1].y()<<" "<<normals[indexNormal-1].y()<<std::endl;
-	std::cout<<points[indexP1-1].z()<<" "<<points[indexP2-1].z()<<" "<<points[indexP3-1].z()<<" "<<normals[indexNormal-1].z()<<std::endl;
 
 	triangulation.addTriangle(points[indexP1-1], points[indexP2-1], points[indexP3-1], normals[indexNormal-1]);
 }

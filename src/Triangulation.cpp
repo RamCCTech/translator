@@ -2,12 +2,10 @@
  
 Triangulation::Triangulation()
 {
- 
 }
  
 Triangulation::~Triangulation()
 {
- 
 }
  
 TriangleList Triangulation::triangles()
@@ -23,18 +21,6 @@ PointList Triangulation::points()
 PointList Triangulation::normals()
 {
     return mNormals;
-}
-
-void Triangulation::addTriangle(Point3D p1, Point3D p2, Point3D p3, Point3D normal)
-{
-    int idx1 = getVIndex(p1);
-    int idx2 = getVIndex(p2);
-    int idx3 = getVIndex(p3);
-    int idxn = getNIndex(normal);
-    Triangle t1 = Triangle(idx1, idx2, idx3);
-    t1.setNormal(idxn);
-    mTriangles.push_back(t1);
-    
 }
 
 int Triangulation::getVIndex(Point3D point)
@@ -75,4 +61,15 @@ std::string Triangulation::getName()
 void Triangulation::setName(std::string inName)
 {
     mObjName = inName;
+}
+
+void Triangulation::addTriangle(Point3D p1, Point3D p2, Point3D p3, Point3D normal)
+{
+    int idx1 = getVIndex(p1);
+    int idx2 = getVIndex(p2);
+    int idx3 = getVIndex(p3);
+    int idxn = getNIndex(normal);
+    Triangle t1 = Triangle(idx1, idx2, idx3);
+    t1.setNormal(idxn);
+    mTriangles.push_back(t1);
 }
